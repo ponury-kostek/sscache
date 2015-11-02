@@ -1,0 +1,22 @@
+{
+  "name": "Pokeball",
+  "version": "0.1.0",
+  "description": "",
+  "main": "Pokeball.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ponury-kostek/pokeball.git"
+  },
+  "author": "Michał Żaloudik <michal.zaloudik@redcart.pl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ponury-kostek/pokeball/issues"
+  },
+  "homepage": "https://github.com/ponury-kostek/pokeball#readme"
+}

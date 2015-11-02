@@ -1,12 +1,12 @@
+"use strict";
 (function (win) {
 	var doc = win.document;
-	"use strict";
 
 	/**
-	 * Catch them all
+	 * Pokeball
 	 */
-	function CTA(options) {
-		console.log('CTA');
+	function Pokeball() {
+		console.log('Pokeball');
 		/**
 		 * @type {sessionStorage}
 		 */
@@ -14,14 +14,14 @@
 		/**
 		 * @type String
 		 */
-		this.prefix = "cta_cache_";
+		this.prefix = "pokecache_";
 		console.log(this);
 	}
 
 	/**
 	 * Stores item in sessionStorage
 	 */
-	CTA.prototype.setItem = function setItem(key, value) {
+	Pokeball.prototype.setItem = function setItem(key, value) {
 		console.log('setItem');
 		return this.ss.setItem(this.prefix + key, value);
 	};
@@ -29,7 +29,7 @@
 	/**
 	 * Checks that item exists in sessionStorage
 	 */
-	CTA.prototype.hasItem = function hasItem(key) {
+	Pokeball.prototype.hasItem = function hasItem(key) {
 		console.log('hasItem');
 		return (this.ss.getItem(this.prefix + key) !== null);
 	};
@@ -37,7 +37,7 @@
 	/**
 	 * Gets item from sessionStorage
 	 */
-	CTA.prototype.getItem = function getItem(key) {
+	Pokeball.prototype.getItem = function getItem(key) {
 		console.log('getItem');
 		return JSON.parse(this.ss.getItem(this.prefix + key));
 	};
@@ -45,7 +45,7 @@
 	/**
 	 * Insert a resource into document
 	 */
-	CTA.prototype.inject = function inject(key, type, data, attributes) {
+	Pokeball.prototype.inject = function inject(key, type, data, attributes) {
 		key = key.replace('.', '-');
 		console.log('inject');
 		console.log('#' + this.prefix + key);
@@ -81,7 +81,7 @@
 	/**
 	 * Tries to load resource
 	 */
-	CTA.prototype.require = function require(obj) {
+	Pokeball.prototype.catchIt = function require(obj) {
 		console.log('require');
 		if (obj.url === undefined) {
 			throw new Error("Url required!");
@@ -95,7 +95,10 @@
 			this.inject(cacheData.key, cacheData.type, cacheData.data, cacheData.attributes || []);
 		} else {
 			var that = this;
-			$.ajax(obj.url, { processData: false, dataType: "text" }).done(function (data, textStatus, jqXHR) {
+			$.ajax(obj.url, {
+				processData : false,
+				dataType : "text"
+			}).done(function (data, textStatus, jqXHR) {
 				console.log("response", data);
 				obj.data = data;
 				if (textStatus.match(/200/)) {
@@ -115,5 +118,5 @@
 			});
 		}
 	};
-	win.CTA = new CTA();
+	win.Pokeball = new Pokeball();
 })(window);
