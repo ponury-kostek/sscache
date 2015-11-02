@@ -3,10 +3,10 @@
 	var doc = win.document;
 
 	/**
-	 * Pokeball
+	 * SSCache
 	 */
-	function Pokeball() {
-		console.log('Pokeball');
+	function SSCache() {
+		console.log('SSCache');
 		/**
 		 * @type {sessionStorage}
 		 */
@@ -21,7 +21,7 @@
 	/**
 	 * Stores item in sessionStorage
 	 */
-	Pokeball.prototype.setItem = function setItem(key, value) {
+	SSCache.prototype.setItem = function setItem(key, value) {
 		console.log('setItem');
 		return this.ss.setItem(this.prefix + key, value);
 	};
@@ -29,7 +29,7 @@
 	/**
 	 * Checks that item exists in sessionStorage
 	 */
-	Pokeball.prototype.hasItem = function hasItem(key) {
+	SSCache.prototype.hasItem = function hasItem(key) {
 		console.log('hasItem');
 		return (this.ss.getItem(this.prefix + key) !== null);
 	};
@@ -37,7 +37,7 @@
 	/**
 	 * Gets item from sessionStorage
 	 */
-	Pokeball.prototype.getItem = function getItem(key) {
+	SSCache.prototype.getItem = function getItem(key) {
 		console.log('getItem');
 		return JSON.parse(this.ss.getItem(this.prefix + key));
 	};
@@ -45,7 +45,7 @@
 	/**
 	 * Insert a resource into document
 	 */
-	Pokeball.prototype.inject = function inject(key, type, data, attributes) {
+	SSCache.prototype.inject = function inject(key, type, data, attributes) {
 		key = key.replace('.', '-');
 		console.log('inject');
 		console.log('#' + this.prefix + key);
@@ -81,7 +81,7 @@
 	/**
 	 * Tries to load resource
 	 */
-	Pokeball.prototype.catchIt = function require(obj) {
+	SSCache.prototype.catchIt = function require(obj) {
 		console.log('require');
 		if (obj.url === undefined) {
 			throw new Error("Url required!");
@@ -118,5 +118,5 @@
 			});
 		}
 	};
-	win.Pokeball = new Pokeball();
+	win.SSCache = new SSCache();
 })(window);

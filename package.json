@@ -1,8 +1,8 @@
 {
-  "name": "Pokeball",
+  "name": "SSCache",
   "version": "0.1.0",
   "description": "",
-  "main": "Pokeball.js",
+  "main": "SSCache.js",
   "directories": {
     "test": "test"
   },
